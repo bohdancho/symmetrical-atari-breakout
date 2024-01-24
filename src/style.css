@@ -1,0 +1,11 @@
+body {
+  background: #020617;
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+}
+
+canvas {
+  width: 80vw;
+  max-width: 80vh;
+  aspect-ratio: 1 / 1;
+}
