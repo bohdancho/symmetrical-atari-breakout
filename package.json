@@ -1,6 +1,7 @@
 {
   "name": "symmetrical-atari-breakout",
   "version": "0.0.0",
+  "homepage": "https://bohdancho.github.io/symmetrical-atari-breakout/",
   "devDependencies": {
     "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.6",
