@@ -7,7 +7,12 @@
     <title>Symmetrical atari breakout</title>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <div class="wrapper">
+      <canvas id="canvas"></canvas>
+      <div class="score-wrapper">
+        <span id="leftScore" class="left-score"></span>✕<span id="rightScore" class="right-score"></span>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

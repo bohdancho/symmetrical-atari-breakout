@@ -1,11 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto+Slab&display=swap');
+@import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+
 body {
   background: #020617;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
 }
 
 canvas {
-  width: 80vw;
-  max-width: 80vh;
+  height: calc(50svh);
+  max-width: 100%;
   aspect-ratio: 1 / 1;
+}
+
+.score-wrapper {
+  font-size: 2rem;
+  color: grey;
+}
+
+.left-score,
+.right-score {
+  width: 4ch;
+  display: inline-block;
+  text-align: center;
+}
+
+.left-score {
+  color: #4d428b;
+}
+
+.right-score {
+  color: #f8ab2b;
 }
