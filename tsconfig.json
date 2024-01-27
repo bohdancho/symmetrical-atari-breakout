@@ -20,9 +20,9 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "~/*": ["./src/*"]
-    }
+      "~/*": ["./src/*"],
+    },
   },
   "include": ["./src", ".prettierrc.js", "*.ts", "*.js", "*.cjs"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

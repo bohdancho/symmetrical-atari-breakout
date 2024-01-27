@@ -20,5 +20,11 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@types/matter-js": "^0.19.6",
+    "@types/p5": "^1.7.6",
+    "matter-js": "^0.19.0",
+    "p5": "^1.9.0"
+  }
 }
