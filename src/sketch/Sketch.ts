@@ -1,8 +1,8 @@
 import p5 from 'p5'
 import { Field } from './Field'
 import { Player } from './Player'
-import { type World, Engine, Events, Composite, Bodies, type IEventCollision, Pair } from 'matter-js'
-import { config, FieldSquareLabel, Label, PlayerLabel, PlayerName, type Score } from '../core'
+import { type World, Engine, Events, Composite, Bodies, type IEventCollision, type Pair } from 'matter-js'
+import { config, type FieldSquareLabel, type Label, type PlayerLabel, type PlayerName, type Score } from '../core'
 
 export class Sketch extends p5 {
   private field!: Field
@@ -24,7 +24,6 @@ export class Sketch extends p5 {
     this.rectMode(this.CENTER)
 
     this.engine = Engine.create()
-    this.engine.timing.timeScale = 1.5
     this.engine.gravity.y = 0
     this.world = this.engine.world
     this.field = new Field(this, this.world, config.field.sideLength)
@@ -41,16 +40,22 @@ export class Sketch extends p5 {
     this.leftPlayer = new Player(
       this,
       this.world,
-      this.createVector(squareSizePx * 3, squareSizePx * 2),
-      this.createVector(squareSizePx / 5, squareSizePx / 3),
+      this.createVector(
+        this.random(0, config.field.sideLength / 3) * squareSizePx,
+        this.random(0, this.height - squareSizePx),
+      ),
+      this.createVector(squareSizePx / this.random(3, 5), squareSizePx / this.random(3, 5)),
       squareSizePx,
       'left',
     )
     this.rightPlayer = new Player(
       this,
       this.world,
-      this.createVector(squareSizePx * 10, squareSizePx * 6),
-      this.createVector(squareSizePx / 3, squareSizePx / 5),
+      this.createVector(
+        this.width - this.random(1, config.field.sideLength / 3) * squareSizePx,
+        this.random(0, this.height - squareSizePx),
+      ),
+      this.createVector(squareSizePx / this.random(3, 5), squareSizePx / this.random(3, 5)),
       squareSizePx,
       'right',
     )
