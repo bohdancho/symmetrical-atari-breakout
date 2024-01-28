@@ -38,7 +38,7 @@ const render = Render.create({
   options: { width: canvas.offsetWidth, height: canvas.offsetHeight, wireframes: false },
 })
 Render.run(render)
-const runner = Runner.create()
+const runner = Runner.create({ isFixed: true })
 Runner.run(runner, engine)
 // @ts-expect-error bouncing with restitution=1 workaround https://github.com/liabru/matter-js/issues/394#issuecomment-289913662
 Resolver._restingThresh = 1
