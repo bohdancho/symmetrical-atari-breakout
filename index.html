@@ -5,15 +5,43 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Symmetrical atari breakout</title>
-    <script type="module" crossorigin src="./assets/index-9qmlLuml.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-EYIrM5sI.css">
+    <script type="module" crossorigin src="./assets/index-KAdQVMsy.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-5Aouc0zS.css">
   </head>
   <body>
     <div class="wrapper">
       <canvas id="canvas" class="canvas"></canvas>
       <div class="score-wrapper">
-        <span id="leftScore" class="left-score"></span>✕<span id="rightScore" class="right-score"></span>
+        <span id="leftScore" class="score color-right"></span>✕<span id="rightScore" class="score color-left"></span>
       </div>
+      <section class="speed-section">
+        <div class="speed-player">
+          <span class="color-left speed-player-name">yellow</span>
+          <div class="speed-controls">
+            <label class="speed-label">
+              <span class="speed-axis">horizontal speed</span>
+              <input class="js-speed-input" data-player="left" data-axis="x" type="range" min="1" max="10" value="5" />
+            </label>
+            <label class="speed-label">
+              <span class="speed-axis">vertical speed</span>
+              <input class="js-speed-input" data-player="left" data-axis="y" type="range" min="1" max="10" value="5" />
+            </label>
+          </div>
+        </div>
+        <div class="speed-player">
+          <span class="color-right speed-player-name">purple</span>
+          <div class="speed-controls">
+            <label class="speed-label">
+              <span class="speed-axis">horizontal speed</span>
+              <input class="js-speed-input" data-player="right" data-axis="x" type="range" min="1" max="10" value="5" />
+            </label>
+            <label class="speed-label">
+              <span class="speed-axis">vertical speed</span>
+              <input class="js-speed-input" data-player="right" data-axis="y" type="range" min="1" max="10" value="5" />
+            </label>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
