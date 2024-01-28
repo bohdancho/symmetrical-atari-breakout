@@ -1,5 +1,3 @@
-import { type Vector } from 'p5'
-
 export const config = {
   field: {
     sideLength: 16,
@@ -10,12 +8,9 @@ export const config = {
   } satisfies Record<PlayerName, string>,
 } as const
 
-export type PlayerName = 'left' | 'right'
+export const playerNames = ['left', 'right'] as const
+export type PlayerName = (typeof playerNames)[number]
 export type Color = (typeof config)['colors'][PlayerName]
-
-export type PlayerLabel = { type: 'player'; name: PlayerName }
-export type FieldSquareLabel = { type: 'fieldSquare'; index: Vector }
-export type Label = PlayerLabel | FieldSquareLabel
 
 export type Score = { left: number; right: number }
 
