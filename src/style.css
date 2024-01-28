@@ -4,35 +4,68 @@
 body {
   background: #020617;
   font-family: 'Roboto Slab', serif;
-  font-size: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100svh;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
 .canvas {
-  height: calc(50svh);
-  max-width: 100%;
+  width: min(50svh, calc(100vw - 5rem));
   aspect-ratio: 1 / 1;
+  margin-bottom: 0.5rem;
 }
 
 .score-wrapper {
+  margin-bottom: 1rem;
   font-size: 2rem;
   color: grey;
+  display: flex;
+  gap: 0.8rem;
 }
 
-.left-score,
-.right-score {
-  width: 4ch;
-  display: inline-block;
+.score {
+  width: 2.7ch;
   text-align: center;
 }
 
-.left-score {
+.color-left {
+  color: #f8ab2b;
+}
+
+.color-right {
   color: #4d428b;
 }
 
-.right-score {
-  color: #f8ab2b;
+.speed-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 1rem;
+}
+
+.speed-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.speed-controls {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  column-gap: 0.8rem;
+}
+
+.speed-label {
+  font-size: 1rem;
+  color: grey;
+  display: contents;
+  text-wrap: nowrap;
+  align-items: center;
 }

@@ -9,7 +9,7 @@ import {
   Vector,
   type Pair,
   type IEventCollision,
-  type Body,
+  Body,
   Resolver,
 } from 'matter-js'
 import { config, playerNames, type PlayerName } from './core'
@@ -54,17 +54,20 @@ Composite.add(world, [
 ])
 
 const squareSizePx = width / config.field.sideLength
+const minSpeed = 0
+const maxSpeed = Math.floor(squareSizePx / 2)
+
 const playerLeft = new Player(
   world,
   Vector.create(squareSizePx, random(squareSizePx, height - squareSizePx * 3)),
-  Vector.create(squareSizePx / random(8, 12), squareSizePx / random(8, 12)),
+  Vector.create(random(maxSpeed / 4, maxSpeed / 3), random(maxSpeed / 4, maxSpeed / 3)),
   squareSizePx,
   'left',
 )
 const playerRight = new Player(
   world,
   Vector.create(width - squareSizePx * 3, random(squareSizePx, height - squareSizePx * 3)),
-  Vector.create(squareSizePx / random(8, 12), squareSizePx / random(8, 12)),
+  Vector.create(random(maxSpeed / 4, maxSpeed / 3), random(maxSpeed / 4, maxSpeed / 3)),
   squareSizePx,
   'right',
 )
@@ -72,6 +75,24 @@ const bodyToPlayer = new Map<Body, Player>([
   [playerLeft.body, playerLeft],
   [playerRight.body, playerRight],
 ])
+
+const speedInputs = document.querySelectorAll<HTMLInputElement>('.js-speed-input')
+speedInputs.forEach((inputElem) => {
+  const playerName = inputElem.dataset.player as PlayerName
+  const player = playerName === 'left' ? playerLeft : playerRight
+  const axis = inputElem.dataset.axis as 'x' | 'y'
+
+  inputElem.min = String(minSpeed)
+  inputElem.max = String(maxSpeed)
+  inputElem.value = String(player.body.velocity[axis])
+
+  inputElem.addEventListener('input', () => {
+    const speed = Number(inputElem.value)
+    const velocity = Vector.clone(player.body.velocity)
+    velocity[axis] = speed
+    Body.setVelocity(player.body, velocity)
+  })
+})
 
 function handleCollisionCaptures(event: IEventCollision<Engine>) {
   playerNames.forEach((playerName) => {
